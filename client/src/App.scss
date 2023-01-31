@@ -1,0 +1,15 @@
+.app{
+    background-color: var(--blue-color);
+}
+
+.app__flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app__flex-space {
+    display: flex;
+    justify-content: space-between;
+ 
+}
+
