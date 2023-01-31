@@ -1,6 +1,6 @@
 
 import './App.scss'
-import { Navbar,Home,SignIn,Commerce } from "./components";
+import { Navbar,Home,SignIn,Commerce,CreateListing } from "./components";
 import { BrowserRouter,Route,Routes,Navigate} from 'react-router-dom'
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
         <Route path='/' exact element={<Home/>}/>
         <Route path='/login' exact element={<SignIn/>}/>
         <Route path='/commerce' exact element={<Commerce/>}/>
+        <Route path='/create' exact element={<CreateListing/>}/>
       </Routes>
       </BrowserRouter>
       {/* <Navbar/>

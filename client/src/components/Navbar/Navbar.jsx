@@ -50,7 +50,9 @@ const Navbar = () => {
                 {/* {state && (
                   dispatch({type:'SIGNOUT'})
                 ) } */}
-               
+              <Link to='/create ' className='link-router'>
+              <li>Create</li>
+              </Link>   
              
             </ul>
         </div>
@@ -71,9 +73,19 @@ const Navbar = () => {
     <ul className='list-small'>
         <li>Home</li>
                 <li>About</li>
-                <li>
-                Login
-                  </li>
+     
+                    <Link onClick={handleClick}  className='link-router' to='/login'>
+                   <li>{state ? 'Logout':'Login'}</li>
+                   </Link>
+    {state && (
+ <h1 className='signed-in'>{`Signed in as : ${isUser?.oldUser.email}`}</h1>
+    )}
+                {/* {state && (
+                  dispatch({type:'SIGNOUT'})
+                ) } */}
+              <Link to='/create ' className='link-router'>
+              <li>Create</li>
+              </Link>   
     </ul>
         
   </div>

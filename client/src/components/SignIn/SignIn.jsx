@@ -3,7 +3,7 @@ import './SignIn.scss'
 import { signUp } from '../../actions/auth.js'
 import { signIn } from '../../actions/auth.js'
     import { useDispatch } from 'react-redux'
-
+import { motion } from 'framer-motion'
 const SignIn = () => {
 
 
@@ -63,10 +63,14 @@ dispatch(signIn(initialState))
   return (
     <div className='form-div'>
 
-        <form onSubmit={handleSubmit}>
+        <form className='form-style' onSubmit={handleSubmit}>
       
       {signUp && (
-        <div >
+        <motion.div
+          whileInView={{y:[100,50,0], opacity:[0,0,1]}}
+    transition={{duration:0.5}}
+        
+        >
       <h1>Sign Up 👋</h1>
       <span>------------------------</span>
             <h1>Email</h1>
@@ -90,7 +94,7 @@ dispatch(signIn(initialState))
             </button>  
      </div>
   
-        </div>
+        </motion.div>
       )}
 
       {!signUp && (

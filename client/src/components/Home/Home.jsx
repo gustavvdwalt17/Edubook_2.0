@@ -6,7 +6,10 @@ import {motion} from "framer-motion"
 import { Link } from "react-router-dom"
 const Home = () => {
   return (
-    <div className="home-wrapper">
+    <motion.div 
+              whileInView={{y:[100,50,0], opacity:[0,0,1]}}
+    transition={{duration:0.5}}
+    className="home-wrapper">
       
       
         <motion.div 
@@ -40,7 +43,7 @@ const Home = () => {
         className="module-wrapper">  <h4>Technology</h4>
         
             <img src={about} alt="" /></motion.div>
-    </div>
+    </motion.div>
   )
 }
 
