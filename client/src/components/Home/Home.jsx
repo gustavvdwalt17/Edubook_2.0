@@ -18,7 +18,67 @@ const Home = () => {
   transition={{duration:0.5}}
         
         className="module-wrapper">
-          <Link to='/commerce'>
+          <Link to='/commerce/commerce'>
+          <h4>
+       
+            Commerce</h4>
+    </Link>
+          <img src={about} alt="" />
+
+       
+        </motion.div >
+                <motion.div 
+   whileInView={{opacity:1}}
+  whileHover={{scale:1.1}}
+  transition={{duration:0.5}}
+        
+        className="module-wrapper">
+          <Link to='/commerce/commerce'>
+          <h4>
+       
+            Commerce</h4>
+    </Link>
+          <img src={about} alt="" />
+
+       
+        </motion.div >
+                <motion.div 
+   whileInView={{opacity:1}}
+  whileHover={{scale:1.1}}
+  transition={{duration:0.5}}
+        
+        className="module-wrapper">
+          <Link to='/commerce/commerce'>
+          <h4>
+       
+            Commerce</h4>
+    </Link>
+          <img src={about} alt="" />
+
+       
+        </motion.div >
+                <motion.div 
+   whileInView={{opacity:1}}
+  whileHover={{scale:1.1}}
+  transition={{duration:0.5}}
+        
+        className="module-wrapper">
+          <Link to='/commerce/commerce'>
+          <h4>
+       
+            Commerce</h4>
+    </Link>
+          <img src={about} alt="" />
+
+       
+        </motion.div >
+                <motion.div 
+   whileInView={{opacity:1}}
+  whileHover={{scale:1.1}}
+  transition={{duration:0.5}}
+        
+        className="module-wrapper">
+          <Link to='/commerce/commerce'>
           <h4>
        
             Commerce</h4>

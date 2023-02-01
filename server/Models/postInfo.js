@@ -3,7 +3,10 @@ import mongoose from "mongoose";
 
 const postSchema = mongoose.Schema({
     title:String,
-    img:String,
+    img:{
+        data:Buffer,
+        contentType:String,
+    },
     price:String,
     number:String,
     faculty:String,
@@ -11,5 +14,5 @@ const postSchema = mongoose.Schema({
 
 })
 
-var postInfo = mongoose.model('PostInfo',postSchema)
-export default postInfo
+var PostInfo = mongoose.model('PostInfo',postSchema)
+export default PostInfo

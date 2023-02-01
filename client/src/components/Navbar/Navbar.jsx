@@ -35,7 +35,9 @@ const Navbar = () => {
             <ul>
                <Link className='link-router' to='/'><li>Home</li>
                </Link> 
-                <li>About</li>
+                 <Link className='link-router' to='/about'>       <li>About</li>
+               </Link> 
+         
     
    
  

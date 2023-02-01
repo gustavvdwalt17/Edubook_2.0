@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import './Create_Listing.scss'
 import { useDispatch } from 'react-redux'
+import { createPost } from '../../actions/posts'
 const CreateListing = () => {
 
 const dispatch=useDispatch()
@@ -20,10 +21,15 @@ const dispatch=useDispatch()
     }
 
     const [initial,setInitial]=useState(initialState)
+
+    const handleSubmit=(e)=>{
+      e.preventDefault()
+      dispatch(createPost(initial))
+    }
   return (
     <div className='app__flex center'>
 
-        <form className='form-style-2'  action="">
+        <form method='POST' className='form-style-2' encType='multipart/form-data' onSubmit={handleSubmit} action="">
 
                   <h1>Create a Listing 📁</h1>
                   <span>--------------------------------------------------</span>
@@ -38,7 +44,8 @@ const dispatch=useDispatch()
      <h5>Campus</h5>
     <input onChange={handleChange} name='campus' type="text"></input>
      <h5 className='file-upload'>Image</h5>
-   <input  type="file" name="img" accept="image/*"/>
+   <input  type="file" name="img" />
+   {/* accept="image/*" */}
 
     <br/>
     <button>Submit</button>
