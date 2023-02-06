@@ -21,3 +21,16 @@ return res.status(201).json(newPost)
 }
 
 }
+
+export const fetchListing = async (req, res)=>{
+    const {type} =req.params
+   
+    try{
+        console.log(type)
+ const findUserdata = await PostInfo.find({faculty:type})
+ console.log(findUserdata)
+return res.status(201).json({data:findUserdata})
+    }catch(err){
+        return res.status(403).json({message:err.message})
+    }
+}

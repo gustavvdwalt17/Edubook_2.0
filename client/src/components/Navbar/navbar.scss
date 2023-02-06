@@ -40,7 +40,16 @@ ul{
         display:none;
     }
 }
+a{
+    text-decoration: none;
+    color: black;
+}
 
+.eduvos-img{
+    width: 100px;
+    margin-top: .4rem;
+    margin-left: 0.2rem;
+}
 .ham-menu{
     z-index: 1;
     line-height: 50px;

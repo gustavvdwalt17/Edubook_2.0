@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import './navbar.scss'
+import eduvos from '../../assets/eduvos.png'
 import {motion} from "framer-motion"
 import {GiHamburgerMenu,GiCrossedBones}  from 'react-icons/gi'
 import {Link} from 'react-router-dom'
@@ -26,7 +27,10 @@ const Navbar = () => {
   return (
     <nav className='app__flex-space navbar-wrapper'>
         <div>
-       <h4 className='h-text'>EduBook</h4>
+       <h4 className='h-text'>
+        <a href='/'>
+          <img className='eduvos-img' src={eduvos} alt="" />
+          </a> </h4>
         </div>
 
 
