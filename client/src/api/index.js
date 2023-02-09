@@ -12,3 +12,5 @@ API.interceptors.request.use((req) => {
 })
 
 export const fetchListing= (type) => API.get(`/post/${type}`);
+export const createListing= (formData) => API.post('/post/create',formData)
+export const deleteListing = (id) => API.delete(`/post/delete/${id}`)

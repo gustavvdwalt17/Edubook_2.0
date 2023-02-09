@@ -1,6 +1,6 @@
 import "./Home.scss"
 import {AiFillPhone,AiOutlineMail,AiOutlineMessages} from 'react-icons/ai'
-import React from 'react'
+import React,{useEffect} from 'react'
 import about from '../../assets/about01.png'
 import tech from '../../assets/faculty-tech.png'
 import arts from '../../assets/faculty-arts.png'
@@ -10,8 +10,19 @@ import science from '../../assets/faculty-science.png'
 import {motion} from "framer-motion"
 import { Link } from "react-router-dom"
 
+
+
+
+    
 const Home = () => {
+// useEffect(()=>{
+//   setTimeout(()=>
+//             window.location.reload(),1000
+//             ) 
+// },[])
+
   return (
+    
     <motion.div 
               whileInView={{y:[100,50,0], opacity:[0,0,1]}}
     transition={{duration:0.5}}

@@ -1,6 +1,6 @@
 
 import './App.scss'
-import { Navbar,Home,SignIn,Commerce,CreateListing, More,Chat } from "./components";
+import { Navbar,Home,SignIn,Commerce,CreateListing, More,Chat,Update } from "./components";
 import { BrowserRouter,Route,Routes,Navigate} from 'react-router-dom'
 import About from './components/About/About';
 import io from 'socket.io-client'
@@ -23,6 +23,7 @@ function App() {
         <Route path='/about' exact element={<About/>}/>
         <Route path='/more' exact element={<More/>}/>
         <Route path='/chat' exact element={<Chat/>}/>
+        <Route path='/update' exact element={<Update/>}/>
 
       </Routes>
       </BrowserRouter>

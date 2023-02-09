@@ -11,8 +11,11 @@ switch(action.type){
         return {...listings,listings:action.payload}
 
     case 'MESSAGE_DATA':
-        console.log('actionpayload',action.payload)
+    
       return {...listings,listings:action.payload}  
+      
+    case 'HANDLE_UPDATE':
+         return {...listings,listings:action.payload}  
 default:
     return listings
     }

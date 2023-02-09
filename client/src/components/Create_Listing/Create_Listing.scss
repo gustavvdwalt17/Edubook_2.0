@@ -1,5 +1,6 @@
 .center{
 margin-top: 10rem;
+margin-bottom: 7rem;
 }
 h5{
     margin-top: 1rem;
@@ -14,3 +15,50 @@ h5{
     padding: 5rem 10rem 10rem 10rem;
     background-color: #ffff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);}
+
+
+    .youel{
+        list-style: none;
+        display: flex;
+
+        li{
+         padding: 10px 30px;
+         color:black;   
+            cursor: pointer;
+        }
+    }
+    .dropdownmenu{
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        transition: all 0.3s ease;
+        // margin: 2rem 2rem 2rem 2rem;
+    }
+.dropdownmenu ul li:hover {
+    color:rgb(121, 114, 114);
+}
+    .dropdown-menu{
+
+        display: none;
+
+
+    }
+        .dropdown-icon{
+            transition: all 0.3s ease;
+         
+        }
+    .dropdownmenu ul li:hover .dropdown-menu {
+            display: block;
+            position: absolute;
+        z-index: 1;
+            border-radius: 10%;
+            cursor: pointer;
+            left: 0;
+            top: 10;
+        
+            background-color: #ffff;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    
+
+    }
+     

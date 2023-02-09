@@ -64,9 +64,10 @@ io.on("connection", (socket) => {
 //   // });
 const Storage = multer.diskStorage({
     destination:(req,file,cb)=>{
-        cb(null,'images')
+        cb(null,'./images')
     },
     filename:(req,file,cb)=>{
+      console.log('doing uplaod')
         cb(null,Date.now()+path.extname(file.originalname))
     }
 })
@@ -84,7 +85,7 @@ import path from 'path'
 app.use(bodyParser.json({ limit: "30mb", extended: true }))
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
 app.use(cors())
-app.post('/post/create',upload.single('img'),createPost)
+// app.post('/post/create',upload.single('img'),createPost)
 app.use('/auth',authRoutes)
 app.use('/post',postRoutes)
 

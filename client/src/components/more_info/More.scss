@@ -8,6 +8,24 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     margin: 6rem 2rem 0rem 2rem;
     border-radius: 10px;
+  
+  
+  
+  
+    @media screen and (max-width: 990px) {
+        flex-direction: column;
+
+        .about-img{ 
+                width: 600px;
+          object-fit: contain;
+            
+        }
+        // input{
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: center;
+        // }
+    }
 }
 
 
@@ -34,4 +52,22 @@ margin: 2rem 2rem 2rem 2rem;
 .message-list{
     display: flex;
     flex-direction: column;
+}
+.image-div{
+    position: relative;
+}
+.buttons {
+    display: flex;
+    position: absolute;
+}
+.delete-btn{
+    font-size: 30px;
+    color: red;
+    margin-right: 27rem;
+
+}
+.update-btn{
+    font-size: 22px;
+   
+ 
 }

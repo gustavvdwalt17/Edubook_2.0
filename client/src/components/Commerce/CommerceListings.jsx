@@ -24,9 +24,9 @@ const handleClick = (e)=>{
         return (
     <div className='another-div'>
     <Link to='/more' onClick={handleClick} >
-    <h1>{postData.title}</h1>
+    <h3 className='h3-title'>{postData.title}</h3>
     
-    <img className='image-topic' src={about} alt="" />
+    <img className='image-topic' src={postData.img} alt="" />
     <div className='desc-grid'>       
  
  <div>

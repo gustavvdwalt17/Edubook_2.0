@@ -3,10 +3,9 @@ import mongoose from "mongoose";
 
 const postSchema = mongoose.Schema({
     title:String,
-    img:{
-        data:Buffer,
-        contentType:String,
-    },
+    img:
+   String,
+  
     price:String,
     number:String,
     faculty:String,

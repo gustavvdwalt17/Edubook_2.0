@@ -7,18 +7,25 @@ import { io, Socket } from 'socket.io-client'
 import Chat from '../Chat/Chat';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import {AiFillDelete} from 'react-icons/ai' 
+
+import {GrUpdate} from 'react-icons/gr' 
+import { deleteListing } from '../../actions/posts';
 const More = ({postData}) => {
-  const socket = io.connect("http://localhost:3001")
-  useEffect(()=>{
-    console.log('1')
-  socket.emit("join_room", id);
-  },[])
+  const nav=useNavigate()
+  const dispatch = useDispatch()
+     const [isUser,setIsUser]=useState(JSON.parse(localStorage.getItem('profile')))
+  // const socket = io.connect("http://localhost:3001")
+  // useEffect(()=>{
+  //   console.log('1')
+  // socket.emit("join_room", id);
+  // },[])
 const [show,setShow]=useState(false)
       const {listings} = useSelector((state) => state.listings) 
       const [messageList,setmessageList]=useState([])
       
-      const username = 'person'
-      const id = listings._id
+      // const username = 'person'
+      // const id = listings._id
         
 
       const [message,setMessage]=useState("")
@@ -31,32 +38,38 @@ const [show,setShow]=useState(false)
         console.log(message)
     }
 
-
-const sendMessage= async ()=>{
-    //   socket.emit("join_room",id) 
-
-      const msg_data={
-        room:id,
-        username:username,
-        msg:message
-      }
-      console.log('this is da msg',message)
-      setmessageList([])
-      await socket.emit("send_message",msg_data)
-      // setmessageList((list)=>[...list,messageList])
-
-      setShow(!show)
-
+const handleClick=()=>{
+  console.log(listings._id)
+  dispatch(deleteListing(listings._id))
 }
+// const sendMessage= async ()=>{
+//     //   socket.emit("join_room",id) 
 
-  useEffect(() => {
+//       const msg_data={
+//         room:id,
+//         username:username,
+//         msg:message
+//       }
+//       console.log('this is da msg',message)
+//       setmessageList([])
+//       await socket.emit("send_message",msg_data)
+//       // setmessageList((list)=>[...list,messageList])
+
+//       setShow(!show)
+
+// }
+
+  // useEffect(() => {
           
-    socket.on("receive_message", (data) => {
-    setmessageList((list)=>[...list,data])
-    });
-  }, [socket]);
+  //   socket.on("receive_message", (data) => {
+  //   setmessageList((list)=>[...list,data])
+  //   });
+  // }, [socket]);
 
-
+const handleUpdate=()=>{
+  dispatch({type:'SEND_UPDATE',payload:listings})
+  nav('/update')
+}
   const handleClicker=()=>{
 setShow(!show)
 // setInfo({...info,info:msg_data})
@@ -92,22 +105,29 @@ setShow(!show)
 <small>Message me</small>
 <div className='message-div'>
 <input value={message}   onChange={handleChange}/>
-<button  onClick={sendMessage}>Send</button>
+{/* <button  onClick={sendMessage}>Send</button> */}
 </div>
 <button onClick={handleClicker}>Go to Chat</button>
 
 </div>
 </div>
 
-<div>
-     <img className='about-img' src={about} alt="" />
+<div className='image-div'>
+     <img className='about-img' src={listings.img} alt="" />
 </div>
+{isUser && (
+  <div className='buttons'>
+<AiFillDelete onClick={handleClick} className='delete-btn'/>
+<GrUpdate onClick={handleUpdate} className='update-btn'/>
+
+  </div>
+)}
 </div>
 )}
 
 
   
-{show && (
+{/* {show && (
   <div>
 
     Chat
@@ -118,18 +138,18 @@ setShow(!show)
 {console.log(messageList)}
 {messageList.map((message)=>{
    return  <h1 > {message.msg}</h1>
-})}
+})} */}
 
 
 
     {/* <h1>{messageList} <br/></h1> */}
 
-  </div>
+  {/* </div>
 
    
 
   </div>
-)}
+)} */}
 
    
     </div>

@@ -2,39 +2,56 @@ import React,{useState} from 'react'
 import './Create_Listing.scss'
 import { useDispatch } from 'react-redux'
 import { createPost } from '../../actions/posts'
+import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import postReducer from '../../reducers/posts'
 import { Link } from 'react-router-dom'
+import FileBase from 'react-file-base64';
+import {IoMdArrowDropdown} from 'react-icons/io'
 const CreateListing = () => {
  const [isUser,setIsUser]=useState(JSON.parse(localStorage.getItem('profile')))
-
-
-const dispatch=useDispatch()
+  const [facultyChosen,setFacultyChosen]=useState('')
     const initialState ={
         title:'',
         price:'',
         number:'',
-        faculty:'',
+        faculty:facultyChosen,
         campus:'',
         img:''
     }
+    const nav=useNavigate()
+    const [initial,setInitial]=useState(initialState)
+const dispatch=useDispatch()
+
 
     const handleChange= (e)=>{
-
+      console.log('facultyyyyy',initialState.faculty)
         setInitial({...initial,[e.target.name]:e.target.value})
         console.log(initial)
     }
 
-    const [initial,setInitial]=useState(initialState)
 
     const handleSubmit=(e)=>{
       e.preventDefault()
-      dispatch(createPost(initial))
+
+      // let formData = new FormData()
+      // formData.append('img',initial.img)
+      // fetch('http://localhost:3001/post/create',{
+      //   method:'post',
+      //   body:formData
+      // }).then(res=>res.text()).then((resBody)=>{
+      //   console.log(resBody)
+      // })
+
+      
+      const newval=initialState.faculty = facultyChosen
+      const newInitial={...initial,faculty:newval}
+      console.log(newInitial)
+      dispatch(createPost(newInitial,nav))
     }
 
 //  const data = useSelector(postReducer.listings) 
-  console.log(postReducer.listings)
-  // console.log('create listings',listings)
+
     return (
     <div className='app__flex center'>
 {isUser ? (
@@ -50,13 +67,39 @@ const dispatch=useDispatch()
     <input onChange={handleChange} name='price' type="text"></input>
      <h5>Number</h5>
     <input onChange={handleChange} name='number' type="text"></input>
-     <h5>Faculty</h5>
-    <input onChange={handleChange} name='faculty' type="text"></input>
+     <h5>Faculty:  {facultyChosen ? facultyChosen: ''}</h5>
+    {/* <input onChange={handleChange} name='faculty' type="text"></input> */}
+   <div className='dropdownmenu'>
+   <ul className='youel'>
+<li className='li-wrapper'>
+Faculties: 
+<IoMdArrowDropdown className='dropdown-icon'/>
+
+  <div className='dropdown-menu'>
+            {/* onClick={()=>setFacultyChosen('commerce')} */}
+          <li  onClick={()=>setFacultyChosen('commerce')}>
+        
+        Commerce
+      </li>
+      <li onClick={()=>setFacultyChosen('science')} >
+        Science
+      </li>
+      <li onClick={()=>setFacultyChosen('arts')}>
+        Arts
+      </li>
+      <li onClick={()=>setFacultyChosen('technology')}>
+        Technology
+      </li>
+  </div>
+</li>
+ 
+    </ul>
+    </div>
      <h5>Campus</h5>
     <input onChange={handleChange} name='campus' type="text"></input>
      <h5 className='file-upload'>Image</h5>
-   <input  type="file" name="img" />
-   {/* accept="image/*" */}
+  <FileBase type="file" multiple={false} onDone={({ base64 }) => setInitial({ ...initial, img: base64 })} /> 
+     {/* accept="image/*"  */}
 
     <br/>
     <button>Submit</button>

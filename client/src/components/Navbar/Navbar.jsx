@@ -18,17 +18,22 @@ const Navbar = () => {
       
       
     )
-  
+
   setTimeout(()=>
             window.location.reload(),1000
             ) 
   }
   }
+  const handleRef=()=>{
+    setTimeout(()=>
+            window.location.reload(),1000
+            ) 
+  }
   return (
     <nav className='app__flex-space navbar-wrapper'>
         <div>
        <h4 className='h-text'>
-        <a href='/'>
+        <a href='/' onClick={ handleRef}>
           <img className='eduvos-img' src={eduvos} alt="" />
           </a> </h4>
         </div>
@@ -37,7 +42,7 @@ const Navbar = () => {
         <div className='list-wrap'>
 
             <ul>
-               <Link className='link-router' to='/'><li>Home</li>
+               <Link className='link-router' to='/' onClick={handleRef}><li>Home</li>
                </Link> 
                  <Link className='link-router' to='/about'>       <li>About</li>
                </Link> 
@@ -56,8 +61,8 @@ const Navbar = () => {
                 {/* {state && (
                   dispatch({type:'SIGNOUT'})
                 ) } */}
-              <Link to='/create ' className='link-router'>
-              <li>Create</li>
+              <Link to='/create ' className='link-router '>
+              <li className='create' >Create</li>
               </Link>   
              
             </ul>
@@ -77,8 +82,13 @@ const Navbar = () => {
 
   <div  >
     <ul className='list-small'>
-        <li>Home</li>
-                <li>About</li>
+        <Link to='/'>
+           <li>Home</li>
+        </Link>
+     <Link to='/about'>
+       <li>About</li>
+     </Link>
+              
      
                     <Link onClick={handleClick}  className='link-router' to='/login'>
                    <li>{state ? 'Logout':'Login'}</li>
