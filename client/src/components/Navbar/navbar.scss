@@ -3,7 +3,7 @@
 
     background-color: #ffff;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-z-index: 1;
+z-index: 1000;
     }
 
 .h-text{
@@ -159,4 +159,31 @@ div{
 .signed-in{
     font-size: 12px;
   margin-top: 0.8rem;
+}
+
+.input__nav {
+    margin-right: 1rem;
+        font-size: 25px;
+        height: 40px;
+        margin-top: 0.5rem;
+          width: 100px;
+          border: 1px solid black;
+            // border: none;
+            // border-bottom: 2px solid silver;
+            // position: relative;
+}
+.navbar__search{
+    margin-top: 1.5rem;
+    cursor: pointer;
+}
+
+// input:focus {
+//     outline: none;
+//     font-size: 12px;
+    
+// }
+@media screen and (min-width:1400px) {
+    .list-wrap{
+        margin-right: 30rem;
+    }
 }

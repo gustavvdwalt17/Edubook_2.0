@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from 'react'
 import './SignIn.scss'
-import { signUp } from '../../actions/auth.js'
+import { signUpp } from '../../actions/auth.js'
 import { signIn } from '../../actions/auth.js'
     import { useDispatch } from 'react-redux'
 import { motion } from 'framer-motion'
 const SignIn = () => {
 
-
+const id =Math.floor(Math. random() * 100)
     // const initialState = {
     //     email:'',
     //     password:'',
@@ -21,7 +21,7 @@ const dispatch=useDispatch()
         email:'',
         password:'',
         confrimpass:'',
-        number:''
+        number:'',id:''
     }
 
     
@@ -31,15 +31,17 @@ const dispatch=useDispatch()
       e.preventDefault()
       var regx =/^([a-zA-Z0-9\._]+)@([a-zA-Z0-9])+.([a-z]+).([a-z]+)?$/;
     
-    if (regx.test(initialState.email)){
-   dispatch(signUp(initialState))
+    if (regx.test(initialState.email) && (signUp)){
+      setInitialState({...initialState, id:id})
+   dispatch(signUpp(initialState))
 
 
   setTimeout(()=>
             window.location.reload(),1000
             ) 
-  }else{
-      alert('Invalid Email')
+  }else if (!signUp){
+      // alert('Invalid Email')
+      dispatch(signIn(initialState))
     }
 
      
@@ -47,11 +49,11 @@ const dispatch=useDispatch()
 
     const handleSignIn=(e)=>{
 e.preventDefault();
-dispatch(signIn(initialState))
+// dispatch(signIn(initialState))
 
-  setTimeout(()=>
-            window.location.reload(),1000
-            ) 
+  // setTimeout(()=>
+  //           window.location.reload(),1000
+  //           ) 
 
     }
 
@@ -74,15 +76,15 @@ dispatch(signIn(initialState))
       <h1>Sign Up 👋</h1>
       <span>------------------------</span>
             <h1>Email</h1>
-            <input onChange={handleChange} required name='email' type='text' ></input>
+            <input className='sign__input' onChange={handleChange} required name='email' type='text' ></input>
               <h1>Password</h1>
-            <input onChange={handleChange} required name='password' type='text' ></input>
+            <input className='sign__input' onChange={handleChange} required name='password' type='text' ></input>
             
                           <h1>Confirm Password</h1>
-            <input onChange={handleChange} required name='confirmpass' type='text' ></input>
+            <input className='sign__input' onChange={handleChange} required name='confirmpass' type='text' ></input>
         
                                      <h1>Number</h1>
-            <input onChange={handleChange} required name='number' type='text' ></input>
+            <input className='sign__input' onChange={handleChange} required name='number' type='text' ></input>
 
      <br/>
      <div className='btns'>
@@ -101,13 +103,14 @@ dispatch(signIn(initialState))
         <div>
       <h1>Sign In 👋</h1>
  <h1>Email</h1>
-            <input onChange={handleChange} required name='email' type='text' ></input>
+            <input className='sign__input' onChange={handleChange} required name='email' type='text' ></input>
               <h1>Password</h1>
-            <input onChange={handleChange} required name='password' type='text' ></input>
+            <input className='sign__input' onChange={handleChange} required name='password' type='text' ></input>
             
             <br/>
                <div className='btns'>
-                <button onClick={handleSignIn} className='signinup-btn '>Sign In</button>
+                {/* onClick={handleSignIn} */}
+                <button  className='signinup-btn '>Sign In</button>
        <button className='signinup-btn extra-class' onClick={()=>setSignUp(!signUp)}>
               <h6>Dont have an Account?</h6>
               </button>  

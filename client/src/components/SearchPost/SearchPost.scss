@@ -1,0 +1,25 @@
+
+.search__wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.another-div {
+    margin-top: 4rem;
+    background-color: #ffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem 2rem 2rem 2rem;
+    border-radius: 10%;
+    margin-left: 1rem;
+
+    h1 {
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 0.2rem;
+    }
+}
+.desc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+

@@ -10,6 +10,7 @@ const postSchema = mongoose.Schema({
     number:String,
     faculty:String,
     campus:String,
+    id:String
 
 })
 

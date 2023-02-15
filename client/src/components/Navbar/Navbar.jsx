@@ -4,14 +4,25 @@ import eduvos from '../../assets/eduvos.png'
 import {motion} from "framer-motion"
 import {GiHamburgerMenu,GiCrossedBones}  from 'react-icons/gi'
 import {Link} from 'react-router-dom'
-
+import {AiOutlineSearch} from 'react-icons/ai'
 import { useDispatch } from 'react-redux'
+import { searchPost } from '../../actions/posts'
+import { useNavigate } from 'react-router-dom'
 const Navbar = () => {
   const dispatch = useDispatch()
    const state = localStorage.getItem('profile')
+   const [searching,setSearching]=useState('')
    const [isUser,setIsUser]=useState(JSON.parse(localStorage.getItem('profile')))
   const [toggle,setToggle]=useState(false)
+const nav=useNavigate()
+const handleSearch = (e) =>{
+  console.log(searching)
+  setSearching({...searching,searching:e.target.value})
 
+}
+const handleSearchClick =()=>{
+dispatch(searchPost(searching,nav))
+}
   const handleClick=()=>{
     {state && (
       dispatch({type:'SIGNOUT'})
@@ -55,8 +66,8 @@ const Navbar = () => {
                 <Link onClick={handleClick}  className='link-router' to='/login'>
                    <li>{state ? 'Logout':'Login'}</li>
                    </Link>
-    {state && (
- <h1 className='signed-in'>{`Signed in as : ${isUser?.oldUser.email}`}</h1>
+    {isUser && (
+ <h1 className='signed-in'>{`Signed in as : ${isUser?.oldUser?.email}`}</h1>
     )}
                 {/* {state && (
                   dispatch({type:'SIGNOUT'})
@@ -64,7 +75,10 @@ const Navbar = () => {
               <Link to='/create ' className='link-router '>
               <li className='create' >Create</li>
               </Link>   
-             
+          
+          
+          
+    
             </ul>
         </div>
   <div className={toggle ?  'ham-menu cross-menu':'ham-menu'}>
@@ -94,7 +108,7 @@ const Navbar = () => {
                    <li>{state ? 'Logout':'Login'}</li>
                    </Link>
     {state && (
- <h1 className='signed-in'>{`Signed in as : ${isUser?.oldUser.email}`}</h1>
+ <h1 className='signed-in'>{`Signed in as : ${isUser.oldUser.email}`}</h1>
     )}
                 {/* {state && (
                   dispatch({type:'SIGNOUT'})

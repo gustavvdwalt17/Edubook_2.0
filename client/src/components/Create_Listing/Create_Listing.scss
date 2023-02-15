@@ -21,11 +21,7 @@ h5{
         list-style: none;
         display: flex;
 
-        li{
-         padding: 10px 30px;
-         color:black;   
-            cursor: pointer;
-        }
+
     }
     .dropdownmenu{
         position: relative;
@@ -33,6 +29,12 @@ h5{
         display: flex;
         transition: all 0.3s ease;
         // margin: 2rem 2rem 2rem 2rem;
+                li {
+                        text-decoration: none;
+                        padding: 10px 30px;
+                        color: black !important;
+                        cursor: pointer;
+                    }
     }
 .dropdownmenu ul li:hover {
     color:rgb(121, 114, 114);
@@ -61,4 +63,15 @@ h5{
     
 
     }
+        input {
+            font-size: 25px;
+            // border-radius: 5px;
+            border: none;
+            border-bottom: 2px solid silver;
+            position: relative;
+    
+        }
      
+select:focus {
+    outline: none;
+}

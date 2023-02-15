@@ -12,11 +12,11 @@
   
   
   
-    @media screen and (max-width: 990px) {
+    @media screen and (max-width: 600px) {
         flex-direction: column;
 
         .about-img{ 
-                width: 600px;
+                width:300px;
           object-fit: contain;
             
         }
@@ -26,6 +26,21 @@
         //     align-items: center;
         // }
     }
+                @media screen and (min-width: 990px) {
+                    flex-direction: column;
+        
+                    .about-img {
+                        width: 600px;
+                        object-fit: contain;
+        
+                    }
+        
+                    // input{
+                    //     display: flex;
+                    //     justify-content: center;
+                    //     align-items: center;
+                    // }
+                }
 }
 
 
@@ -34,6 +49,10 @@
     height: 300px;
     margin: 2rem 2rem 2rem 2rem;
 object-fit: contain;
+@media screen and (max-width: 550px) {
+    width: 100px;
+    height: 200px;
+}
 }
 
 .more-inside__wrapper{
@@ -58,16 +77,51 @@ margin: 2rem 2rem 2rem 2rem;
 }
 .buttons {
     display: flex;
-    position: absolute;
-}
-.delete-btn{
-    font-size: 30px;
-    color: red;
-    margin-right: 27rem;
+   margin-bottom: 1rem; 
 
+}
+.delete-btn-div{
+    display: flex;
+    margin-bottom: 2rem;
+
+}
+        .delete-btnn {
+            background-color: red;
+  
+        color:#ffff;
+        width: 100px;
+        height: 40px;
+        margin-right: 1rem;
+            
+        }
+.delete-btn{
+    font-size: 20px;
+    color: white;
+        cursor: pointer;
+    margin-right: 27rem;
+@media screen and (min-width: 1000px) {
+    margin-top: 17rem;
+    margin-right: 0rem;
+}
 }
 .update-btn{
     font-size: 22px;
-   
+    cursor: pointer;
+@media screen and (min-width: 1000px) {
+        margin-top: 17.3rem;
+        margin-right: 0rem;
+    
+    }
  
 }
+.update-btn-div{
+        display: flex;
+            margin-bottom: 2rem;
+            button{
+                margin-left: 1rem;
+                color: white;
+background-color: blue;
+            }
+         
+}
+

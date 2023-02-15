@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt'
 const secret='secret'
 import jwt from "jsonwebtoken";
 export const signUp = async (req,res)=>{
-    const {email,password,confirmpass,number,name}=req.body
+    const {email,password,confirmpass,number,name,id}=req.body
     try{
      
         console.log('backend')
@@ -16,11 +16,11 @@ export const signUp = async (req,res)=>{
         
         const hashedPass= await bcrypt.hash(password,12)
        
-        const result = await UserInfo.create({email,password:hashedPass,number,name})
-        const user = {email:result.email,id:result._id}
+        const result = await UserInfo.create({email,password:hashedPass,number,name,id})
+        const user = {email:result.email,id_auto:result._id,id}
         const token = jwt.sign(user, secret,{expiresIn:"1h"})
-    
-        res.status(201).json({result,token})
+            const oldUser=result
+        res.status(201).json({oldUser,token})
     }catch(err){
          res.status(500).json({ message: err.message });
     }
@@ -42,7 +42,7 @@ export const signIn = async (req, res) => {
       
     const user = {email:oldUser.email,id:oldUser._id}
         const token = jwt.sign(user, secret,{expiresIn:"1h"})
-      
+       
         res.status(201).json({oldUser,token})
     }
 

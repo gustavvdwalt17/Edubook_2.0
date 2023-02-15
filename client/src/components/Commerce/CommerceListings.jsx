@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import {BiBuildingHouse} from 'react-icons/bi'
 import More from '../more_info/More'
 import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 const CommerceListings = ({listing,index}) => {
     const dispatch = useDispatch()
     console.log('in',index)
@@ -20,9 +21,10 @@ const handleClick = (e)=>{
     dispatch({type:'MORE',payload:postData})
 }
 
-
         return (
     <div className='another-div'>
+
+
     <Link to='/more' onClick={handleClick} >
     <h3 className='h3-title'>{postData.title}</h3>
     

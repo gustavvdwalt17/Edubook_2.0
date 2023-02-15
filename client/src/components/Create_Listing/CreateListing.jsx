@@ -17,8 +17,21 @@ const CreateListing = () => {
         number:'',
         faculty:facultyChosen,
         campus:'',
-        img:''
+        img:'',
+        id:isUser !== null ? isUser.oldUser.id : ''
     }
+    console.log(initialState.id)
+    function phonenumber(inputtxt) {
+  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  if(inputtxt.match(phoneno)) {
+    return true;
+  }
+  else {
+    alert("message");
+    return false;
+  }
+}
+console.log(initialState.id)
     const nav=useNavigate()
     const [initial,setInitial]=useState(initialState)
 const dispatch=useDispatch()
@@ -29,11 +42,23 @@ const dispatch=useDispatch()
         setInitial({...initial,[e.target.name]:e.target.value})
         console.log(initial)
     }
-
+//https://www.youtube.com/watch?v=fb4QcrpQKUM
 
     const handleSubmit=(e)=>{
       e.preventDefault()
+      if (phonenumber(initial.number)){
+             const newval=initialState.faculty = facultyChosen
+      const newInitial={...initial,faculty:newval}
+      // console.log(newInitial)
 
+      // #send with the id of the logged in ser to store adn when delete check if id is the same
+    
+    
+      // send id with
+      dispatch(createPost(newInitial,nav))
+      }else{
+        console.log('no')
+      }
       // let formData = new FormData()
       // formData.append('img',initial.img)
       // fetch('http://localhost:3001/post/create',{
@@ -44,10 +69,10 @@ const dispatch=useDispatch()
       // })
 
       
-      const newval=initialState.faculty = facultyChosen
-      const newInitial={...initial,faculty:newval}
-      console.log(newInitial)
-      dispatch(createPost(newInitial,nav))
+      // const newval=initialState.faculty = facultyChosen
+      // const newInitial={...initial,faculty:newval}
+      // console.log(newInitial)
+      // dispatch(createPost(newInitial,nav))
     }
 
 //  const data = useSelector(postReducer.listings) 
@@ -76,7 +101,7 @@ Faculties:
 <IoMdArrowDropdown className='dropdown-icon'/>
 
   <div className='dropdown-menu'>
-            {/* onClick={()=>setFacultyChosen('commerce')} */}
+       
           <li  onClick={()=>setFacultyChosen('commerce')}>
         
         Commerce
@@ -92,7 +117,12 @@ Faculties:
       </li>
   </div>
 </li>
- 
+ {/* <select>
+  <option>Commerce</option>
+  <option>Commerce</option>
+  <option>Commerce</option>
+  <option>Commerce</option>
+ </select> */}
     </ul>
     </div>
      <h5>Campus</h5>

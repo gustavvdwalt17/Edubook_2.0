@@ -11,17 +11,26 @@ import {AiFillDelete} from 'react-icons/ai'
 
 import {GrUpdate} from 'react-icons/gr' 
 import { deleteListing } from '../../actions/posts';
-const More = ({postData}) => {
+const More = () => {
   const nav=useNavigate()
   const dispatch = useDispatch()
      const [isUser,setIsUser]=useState(JSON.parse(localStorage.getItem('profile')))
+     const {listings} = useSelector((state) => state.listings) 
+
+  //  localStorage.setItem('info',JSON.stringify(listings))
+     const [isItems,setIsItems]=useState(JSON.parse(localStorage.getItem('info')))
+    console.log('itemmss',isItems)
+     //  console.log(isUser.oldUser._id)
+    //  console.log(isUser)
+    
+    //  console.log(listings.number)
   // const socket = io.connect("http://localhost:3001")
   // useEffect(()=>{
   //   console.log('1')
   // socket.emit("join_room", id);
   // },[])
 const [show,setShow]=useState(false)
-      const {listings} = useSelector((state) => state.listings) 
+ 
       const [messageList,setmessageList]=useState([])
       
       // const username = 'person'
@@ -33,14 +42,14 @@ const [show,setShow]=useState(false)
 
 
     const handleChange=(e)=>{
-        console.log(message)
+     
         setMessage(e.target.value)
-        console.log(message)
+      
     }
 
 const handleClick=()=>{
   console.log(listings._id)
-  dispatch(deleteListing(listings._id))
+  dispatch(deleteListing(listings._id,nav))
 }
 // const sendMessage= async ()=>{
 //     //   socket.emit("join_room",id) 
@@ -67,7 +76,7 @@ const handleClick=()=>{
   // }, [socket]);
 
 const handleUpdate=()=>{
-  dispatch({type:'SEND_UPDATE',payload:listings})
+  dispatch({type:'UPDATE',payload:listings})
   nav('/update')
 }
   const handleClicker=()=>{
@@ -86,45 +95,58 @@ setShow(!show)
 <div className='more-inside__wrapper'>
   
   
-  
-  <h1 className='h1-center'>  {listings.title}
+  {/* {console.log('listingstitle',listings.title)} */}
+  <h1 className='h1-center'>  {isItems.title}
   <br/>
    <span>---------------------</span></h1>
  
 
   <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores cum fugit soluta excepturi eveniet inventore suscipit harum omnis molestias. Nostrum voluptates neque maxime. Delectus aut iure nostrum animi consequatur unde.</small>
 <br/>
-<small>Price: {listings.price}</small>
+<small>Price: {isItems.price}</small>
 <br/>
-<small>Faculty:{listings.faculty}</small>
+<small>Faculty:{isItems.faculty}</small>
 <br/>
-<small>Campus:{listings.campus}</small>
+<small>Campus:{isItems.campus}</small>
 <br/>
-<small>Number:{listings.number}</small>
-<div>
-<small>Message me</small>
-<div className='message-div'>
-<input value={message}   onChange={handleChange}/>
-{/* <button  onClick={sendMessage}>Send</button> */}
-</div>
-<button onClick={handleClicker}>Go to Chat</button>
+<small>Number:{isItems.number}</small>
 
-</div>
-</div>
-
+{/* {console.log(isUser.oldUser.id,isItems.id)} */}
 <div className='image-div'>
-     <img className='about-img' src={listings.img} alt="" />
+     <img className='about-img' src={isItems.img} alt="" />
 </div>
-{isUser && (
-  <div className='buttons'>
-<AiFillDelete onClick={handleClick} className='delete-btn'/>
-<GrUpdate onClick={handleUpdate} className='update-btn'/>
+{isUser?.oldUser.id===isItems.id && isUser !== null && (
 
+  <div className='buttons'>
+
+  <div className='delete-btn-div'>
+<button className='delete-btnn'  onClick={handleClick}  >
+  Delete
+ </button> 
+  {/* <AiFillDelete onClick={handleClick} className='delete-btn'/> */}
+  </div>
+
+<div className='update-btn-div'>
+<button  onClick={handleUpdate}>
+Update  
+  {/* <GrUpdate onClick={handleUpdate} className='update-btn'/> */}
+</button>
+</div>
   </div>
 )}
 </div>
+   </div>
 )}
+{/* {/* <div> */}
+{/* <small>Message me</small>
+<div className='message-div'>
+<input className='more__input' value={message}   onChange={handleChange}/> 
+{/* <button  onClick={sendMessage}>Send</button> */}
+{/* </div> */}
+{/* <button onClick={handleClicker}>Go to Chat</button> */}
 
+{/* </div>
+</div> */} 
 
   
 {/* {show && (
@@ -153,6 +175,7 @@ setShow(!show)
 
    
     </div>
+ 
   )
 }
 

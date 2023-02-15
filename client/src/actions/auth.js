@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-export const signUp = (formData) => async (dispatch) => {
+export const signUpp = (formData) => async (dispatch) => {
 
 try{
     console.log('fomrdata',formData)

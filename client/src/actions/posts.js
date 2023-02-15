@@ -28,12 +28,35 @@ console.log(error.response.data)
    
 }
 
-export const deleteListing = (id) => async (dispatch)=>{
+export const deleteListing = (id,nav) => async (dispatch)=>{
     try{
 const {data} = await api.deleteListing(id)
-
+dispatch({type:'DELETE',payload:data})
+nav('/')
     }catch(err){
      console.log(err.response.data)   
     }
 
+}
+export const updatePost =(id,data) => async (dispatch) =>{
+    try{
+    const {updatePost} = await api.updatePost(id,data)
+    dispatch({type:'UPDATE',payload:updatePost})
+    }catch(err){
+     console.log(err.response.data)   
+    }
+
+}
+
+export const searchPost = (search,nav) => async (dispatch) =>{
+    try{
+        console.log(search,'asdads')
+const { data:{data} } = await api.searchPost(search)
+nav(`/searchPost`);
+dispatch({type:'SEARCH',payload:data})
+
+console.log(data)
+    }catch(err){
+      console.log(err.response.data)        
+    }
 }
