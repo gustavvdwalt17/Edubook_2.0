@@ -20,6 +20,7 @@ export const signUp = async (req,res)=>{
         const user = {email:result.email,id_auto:result._id,id}
         const token = jwt.sign(user, secret,{expiresIn:"1h"})
             const oldUser=result
+            console.log('token back')
         res.status(201).json({oldUser,token})
     }catch(err){
          res.status(500).json({ message: err.message });

@@ -4,13 +4,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         
             background-color: #ffff;
                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
                 width: 600px;
                 height: 800px;
-                margin: 5rem 0rem 2rem 12rem;
+                // margin: 5rem 0rem 2rem 12rem;
+                margin: 0 auto;
+                margin-top: 10rem;
                 border-radius: 20px;
     h1{
         color: black;
@@ -21,8 +24,23 @@
         width: 300px;
                     // color: white;
                 // background-color: #ffff;
-                    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+                    // box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     }   
+
+    @media screen and (max-width:500px) {
+        width: 350px;
+        height: 600px;
+        margin: 0 auto;
+        margin-top: 2rem;
+
+        input{
+            font-size: 12px;
+
+        }
+        h1{
+            font-size: 20px;
+        }
+    }
 }
 .title{
     position: absolute;
@@ -93,4 +111,10 @@ color: white;
  }
  button{
  display: block;
+ }
+
+ .btn__submit{
+    background-color: #26389E;
+    color: white;
+    padding: 10px;
  }

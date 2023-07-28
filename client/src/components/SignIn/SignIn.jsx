@@ -33,12 +33,14 @@ const dispatch=useDispatch()
     
     if (regx.test(initialState.email) && (signUp)){
       setInitialState({...initialState, id:id})
+
+      console.log('dispatching singup')
    dispatch(signUpp(initialState))
 
 
-  setTimeout(()=>
-            window.location.reload(),1000
-            ) 
+  // setTimeout(()=>
+  //           window.location.reload(),1000
+  //           ) 
   }else if (!signUp){
       // alert('Invalid Email')
       dispatch(signIn(initialState))
@@ -74,7 +76,7 @@ e.preventDefault();
         
         >
       <h1>Sign Up 👋</h1>
-      <span>------------------------</span>
+   
             <h1>Email</h1>
             <input className='sign__input' onChange={handleChange} required name='email' type='text' ></input>
               <h1>Password</h1>
@@ -88,11 +90,11 @@ e.preventDefault();
 
      <br/>
      <div className='btns'>
-        <button  className='app__flex signinup-btn '>SignUp </button>
+        <button  className='app__flex signinup-btn '> <small> Signup </small></button>
           <button className='signinup-btn extra-class' onClick={()=>setSignUp(!signUp)}>
-            <h6>
+      
 
-            Already have an account?</h6>
+        <small> Already have an Account? </small>
             </button>  
      </div>
   
@@ -110,9 +112,12 @@ e.preventDefault();
             <br/>
                <div className='btns'>
                 {/* onClick={handleSignIn} */}
-                <button  className='signinup-btn '>Sign In</button>
+                <button  className='signinup-btn '>
+                  
+                  <small> Signin </small>
+                  </button>
        <button className='signinup-btn extra-class' onClick={()=>setSignUp(!signUp)}>
-              <h6>Dont have an Account?</h6>
+          <small> Don't have an Account? </small>
               </button>  
                </div>
         

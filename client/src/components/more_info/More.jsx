@@ -76,7 +76,8 @@ const handleClick=()=>{
   // }, [socket]);
 
 const handleUpdate=()=>{
-  dispatch({type:'UPDATE',payload:listings})
+  console.log(isItems)
+  dispatch({type:'UPDATE',payload:isItems})
   nav('/update')
 }
   const handleClicker=()=>{
@@ -98,18 +99,23 @@ setShow(!show)
   {/* {console.log('listingstitle',listings.title)} */}
   <h1 className='h1-center'>  {isItems.title}
   <br/>
-   <span>---------------------</span></h1>
+</h1>
  
 
-  <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores cum fugit soluta excepturi eveniet inventore suscipit harum omnis molestias. Nostrum voluptates neque maxime. Delectus aut iure nostrum animi consequatur unde.</small>
+ <div className='more__info-text' >
+{/* <br/> */}
+<small className='small__headline'>The price of the item is: {isItems.price}</small>
 <br/>
-<small>Price: {isItems.price}</small>
+<small className='small__headline'>The faculty this book belongs to is:
+{isItems.faculty}</small>
 <br/>
-<small>Faculty:{isItems.faculty}</small>
+<small className='small__headline'>The campus this person resides in is:
+{isItems.campus}</small>
 <br/>
-<small>Campus:{isItems.campus}</small>
-<br/>
-<small>Number:{isItems.number}</small>
+<small className='small__headline'>Number:
+{isItems.number}</small>
+ </div>
+
 
 {/* {console.log(isUser.oldUser.id,isItems.id)} */}
 <div className='image-div'>

@@ -1,22 +1,31 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { useSelector } from 'react-redux'
 import './SearchPost.scss'
+import { Link } from 'react-router-dom'
 import {AiOutlinePhone} from 'react-icons/ai'
 import {GiPriceTag} from 'react-icons/gi'
 import {BiBuildingHouse} from 'react-icons/bi'
+import { useDispatch } from 'react-redux'
 const SearchPost = () => {
+    const dispatch= useDispatch()
       const {listings} = useSelector((state) => state.listings) 
-  console.log('listings',listings)
-       {console.log('len',listings.length)}
+      const [postData,setPostData]=useState(listings)
+    const handleClick = () =>{
+        console.log('asdasdasd',postData)
+         dispatch({type:'MORE',payload:postData})
+    }
       return (
-    <div>
+        <>
 <h1 className='app__flex'>Listings:</h1>
+    <div className='search__wrapper' >
+
         {listings?.map((lis) =>{
             return (
                
-                <div className='search__wrapper'>
+   
 
                    <div className='another-div'>
+                      <Link to='/more' onClick={handleClick} >
  
     <h3 className='h3-title'>{lis.title}</h3>
     
@@ -35,15 +44,16 @@ const SearchPost = () => {
 
 </div> 
 
- 
+ </Link>
     </div>
            
 
 
-                </div>
+                
             )
         })}
     </div>
+    </>
   )
 }
 

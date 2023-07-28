@@ -38,6 +38,10 @@ const Update = () => {
     const handleSubmit=(e)=>{
          e.preventDefault()
       if (phonenumber(updatePosts.number)){
+        if (initialState.faculty ===""){
+          alert('Please choose a Faculty')
+          return
+        }
      const newval=initialState.faculty = facultyChosen
       const newInitial={...updatePosts,faculty:newval}
 
@@ -95,7 +99,7 @@ Faculties:
 <FileBase className='filebase-64' placeholder={isItems.img} type="file" multiple={false} onDone={({ base64 }) => setUpdatePost({ ...updatePosts, img: base64 })} />
 
    
-   <button>Submit</button>
+   <button className='btn__submit'>Submit</button>
    </form>
     </div>
   )

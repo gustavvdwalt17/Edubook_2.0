@@ -27,7 +27,7 @@ const CreateListing = () => {
     return true;
   }
   else {
-    alert("message");
+    alert("Number is Incorrect");
     return false;
   }
 }
@@ -47,13 +47,18 @@ const dispatch=useDispatch()
     const handleSubmit=(e)=>{
       e.preventDefault()
       if (phonenumber(initial.number)){
+
+              if (initialState.faculty === ""){
+                alert('Please Choose a Faculty')
+                return
+              }
              const newval=initialState.faculty = facultyChosen
       const newInitial={...initial,faculty:newval}
       // console.log(newInitial)
 
       // #send with the id of the logged in ser to store adn when delete check if id is the same
     
-    
+      
       // send id with
       dispatch(createPost(newInitial,nav))
       }else{
@@ -85,7 +90,7 @@ const dispatch=useDispatch()
         <form method='POST' className='form-style-2' encType='multipart/form-data' onSubmit={handleSubmit} action="">
 
                   <h1>Create a Listing 📁</h1>
-                  <span>--------------------------------------------------</span>
+                 
     <h5>Title</h5>
     <input onChange={handleChange} name='title' type="text"></input>
      <h5>Price</h5>
@@ -132,7 +137,7 @@ Faculties:
      {/* accept="image/*"  */}
 
     <br/>
-    <button>Submit</button>
+    <button className='submit__btn'>Submit</button>
         </form>
         ):(
 

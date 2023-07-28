@@ -1,5 +1,5 @@
 
-
+// as search maak dat jy kan click en more sien jaja
 //state,action
 export const postReducer= (listings=[],action)=>{
 switch(action.type){
@@ -18,8 +18,8 @@ switch(action.type){
        
         return {...listings,listings:action.payload}
     case 'UPDATE':
-        console.log('update paulaod',action.payload)
-        if (localStorage.getItem("update") === null) {
+        console.log('papapa',action.payload)
+        if (localStorage.getItem("update") === null || localStorage.getItem("update") === undefined ) {
             console.log('yeyeyeyeyeye')
       localStorage.setItem('update',JSON.stringify(action.payload))
      

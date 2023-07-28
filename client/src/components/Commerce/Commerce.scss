@@ -1,5 +1,8 @@
 .outside-wrapper{
     display: grid;
+    background-color: #1F3B5B;
+    height:100vh;
+
     // grid-template-columns: 1fr 1fr 1fr;
 @media screen and (max-width: 800px) {
         grid-template-columns: 1fr;
@@ -28,6 +31,7 @@
     word-wrap: break-word;
 }
 .topic-wrapper{
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,6 +39,7 @@
     height: 100%;
    
 }
+
 .another-div{
     margin-top: 4rem;
     background-color: #ffff;
@@ -79,6 +84,9 @@ border: none;
 }
 .top__div{
     display: flex;
+           
+            
+                // height: 100vh;
 
     h4{
         line-height: 50px;
@@ -86,4 +94,22 @@ border: none;
     select{
      
     }
+}
+
+.loading__state{
+    width: 100px;
+
+    animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading__container{
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 5rem;
 }

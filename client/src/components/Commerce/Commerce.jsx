@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { fetchListing } from '../../actions/posts'
 import { useSelector } from 'react-redux'
 import CommerceListings from './CommerceListings'
-
+import { loading } from '../../assets'
 const Commerce = () => {
 
 
@@ -95,9 +95,8 @@ return (
 )}
 ):(
 
-  <div className='app__flex'>
-  
-    <h1>Loading...</h1>
+  <div className='loading__container'>
+<img className='loading__state' src={loading} alt="" />
     
     </div>
 )}

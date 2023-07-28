@@ -36,10 +36,18 @@ dispatch(searchPost(searching,nav))
 // },[])
 
   return (
-    <div>
-      <input name='search' onChange={handleSearch} className='input__nav'/>
-      
-       <AiOutlineSearch onClick={handleSearchClick} className='navbar__search'/>     
+    <div className="home__page" >
+      <div className="search__post" >
+        <div className="input__nav-div" >
+<input name='search' onChange={handleSearch} className='input__nav'/>
+        </div>
+
+      <div className=" navbar__search-div" >
+   <AiOutlineSearch onClick={handleSearchClick} className='navbar__search'/>   
+      </div>
+     
+      </div>
+       
     <motion.div 
               whileInView={{y:[100,50,0], opacity:[0,0,1]}}
     transition={{duration:0.5}}
@@ -110,39 +118,7 @@ dispatch(searchPost(searching,nav))
 
        
         </motion.div >
-                {/* <motion.div 
-   whileInView={{opacity:1}}
-  whileHover={{scale:1.1}}
-  transition={{duration:0.5}}
-        
-        className="module-wrapper">
-          <Link to='/commerce/commerce'>
-          <h4>
-       
-            Commerce</h4>
-    </Link>
-          <img src={about} alt="" />
 
-       
-        </motion.div >
-        <motion.div 
-         whileInView={{opacity:1}}
-  whileHover={{scale:1.1}}
-  transition={{duration:0.5}}
-        className="module-wrapper">  
-        <Link to='/commerce/medicine'>
-        <h4>Medicine
-          
-          </h4>
-          </Link>
-              <img src={about} alt="" /></motion.div>
-        <motion.div 
-         whileInView={{opacity:1}}
-  whileHover={{scale:1.1}}
-  transition={{duration:0.5}}
-        className="module-wrapper">  <h4>Technology</h4>
-        
-            <img src={about} alt="" /></motion.div> */}
     </motion.div>
     </div>
   )

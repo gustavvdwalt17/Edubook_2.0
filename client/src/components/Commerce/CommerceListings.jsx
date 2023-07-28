@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { GiConsoleController } from 'react-icons/gi'
 import './Commerce.scss'
-import about from '../../assets/about01.png'
+// import about01 from './about01.png'
 import {AiOutlinePhone,AiOutlineMail} from 'react-icons/ai'
 import {GiPriceTag} from 'react-icons/gi'
 import { Link } from 'react-router-dom'
@@ -34,10 +34,12 @@ const handleClick = (e)=>{
  <div>
  <br/><small><AiOutlinePhone/> Number:{postData.number}</small>
  <br/><small ><GiPriceTag/> Price:{postData.price}</small>
+
  </div>
+ 
   <div >
+
  <br/><small><BiBuildingHouse/> Faculty:{postData.faculty}</small>
- <br/><small >  <AiOutlineMail/> Message me</small>
 </div>
 
 

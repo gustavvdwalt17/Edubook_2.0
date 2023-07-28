@@ -90,7 +90,7 @@ dispatch(searchPost(searching,nav))
 
    
     <motion.div 
-         whileInView={{ x: [300,0] }}
+         whileInView={{ x: [200,0] }}
             transition={{ duration: 0.85, ease: 'easeOut' }}
     className='app__navbar-small'>
 

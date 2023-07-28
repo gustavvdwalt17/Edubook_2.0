@@ -4,8 +4,8 @@ import axios from 'axios'
 export const signUpp = (formData) => async (dispatch) => {
 
 try{
-    console.log('fomrdata',formData)
-    console.log('yeeting')
+    // console.log('fomrdata',formData)
+    console.log('yeetingggggggggggg')
     const {data} = await axios.post('http://localhost:5000/auth/signup',formData)
 console.log(data)
 dispatch({type:'AUTH',data})
